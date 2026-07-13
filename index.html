@@ -3,43 +3,498 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مطعم قيس زلطن</title>
+    <title>مطعم قيس زلطن - القائمة الرسمية</title>
     <style>
-        body { 
-            background-color: #121212; 
-            color: #fff; 
-            font-family: sans-serif; 
-            text-align: center; 
+        :root {
+            --primary: #dc2626;
+            --secondary: #eab308;
+            --dark: #121212;
+            --card-bg: #1a1a1a;
+            --text-light: #fffdfa;
+            --text-gray: #a3a3a3;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--dark);
+            color: var(--text-light);
+            background-image: linear-gradient(to bottom, rgba(0,0,0,0.85), #121212), url('https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=1000');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center top;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(to bottom, rgba(220, 38, 38, 0.4), transparent);
+            border-bottom: 2px solid var(--secondary);
+        }
+
+        .logo-placeholder {
+            font-size: 32px;
+            font-weight: bold;
+            color: var(--secondary);
+            text-shadow: 2px 2px 8px rgba(234, 179, 8, 0.6);
+            margin-bottom: 5px;
+        }
+
+        header h1 {
+            font-size: 22px;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        .btn-contact {
+            display: inline-block;
+            margin-top: 15px;
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 15px;
+            border: 1px solid var(--secondary);
+            box-shadow: 0 4px 10px rgba(220, 38, 38, 0.4);
+        }
+
+        /* قسم خدمة التوصيل */
+        .delivery-section {
+            max-width: 600px;
+            margin: 25px auto 10px auto;
+            padding: 20px 15px;
+            background: linear-gradient(135deg, #1e1e1e, #151515);
+            border-radius: 15px;
+            border: 1px solid rgba(234, 179, 8, 0.3);
+            text-align: center;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+        }
+
+        .delivery-title {
+            color: var(--secondary);
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .delivery-text {
+            font-size: 14px;
+            color: #e5e5e5;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .cities-badges {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        .city-badge {
+            background-color: rgba(220, 38, 38, 0.2);
+            color: #fff;
+            border: 1px solid var(--primary);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        /* زر المسنجر الفخم */
+        .btn-messenger {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background-color: #0084ff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 10px rgba(0, 132, 255, 0.4);
+            transition: 0.3s;
+        }
+
+        .menu-section {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px 15px 80px 15px;
+        }
+
+        .section-title {
+            color: var(--secondary);
+            font-size: 20px;
+            margin-bottom: 20px;
+            border-right: 4px solid var(--primary);
+            padding-right: 10px;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .food-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #262626;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .img-container {
+            width: 100%;
+            height: 120px;
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 12px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 8px;
+        }
+
+        .food-title {
+            font-size: 15px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .price-container {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            flex-wrap: wrap;
+        }
+
+        .price-tag {
+            background-color: #262626;
+            color: var(--secondary);
+            border: 1px solid var(--primary);
+            padding: 4px 8px;
+            border-radius: 15px;
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        .price-tag.meat {
+            border-color: var(--secondary);
+            color: #fff;
+            background-color: var(--primary);
+        }
+
+        footer {
+            background-color: #0c0c0c;
+            text-align: center;
             padding: 20px;
-        }
-        .grid-container { 
-            display: grid; 
-            grid-template-columns: 1fr 1fr; 
-            gap: 10px; 
+            font-size: 13px;
+            color: var(--text-gray);
+            border-top: 1px solid var(--secondary);
             margin-top: 20px;
-        }
-        .food-card { 
-            background: #222; 
-            padding: 15px; 
-            border-radius: 10px; 
-            border: 1px solid #333;
         }
     </style>
 </head>
 <body>
 
-    <h1>مطعم قيس زلطن</h1>
+    <header>
+        <div class="logo-placeholder">مطعم قيس زلطن</div>
+        <h1>طعم الأصالة ... سر التميز</h1>
+        <p>زلطن | ليبيا</p>
+        <a href="tel:0924936169" class="btn-contact">📞 اطلب عبر واتساب أو إتصال: 0924936169</a>
+    </header>
 
-    <div class="grid-container">
-        <div class="food-card">طابونة</div>
-        <div class="food-card">برجر</div>
-        <div class="food-card">مقلوب</div>
-        <div class="food-card">باقيت</div>
-        <div class="food-card">بيتزا جبنة</div>
-        <div class="food-card">بيتزا خضرة</div>
-        <div class="food-card">بيتزا تن</div>
-        <div class="food-card">بيتزا دجاج</div>
+    <!-- قسم التوصيل الموسع مع زر المسنجر المباشر -->
+    <div class="delivery-section">
+        <div class="delivery-title">🚀 خدمة التوصيل السريع متوفرة الآن!</div>
+        <div class="delivery-text">يسرنا تلبية طلباتكم وتوصيل وجباتكم المفضلة ساخنة وطازجة مباشرة إلى أبوابكم في المناطق التالية:</div>
+        <div class="cities-badges">
+            <span class="city-badge">داخل زلطن</span>
+            <span class="city-badge">رقدالين</span>
+            <span class="city-badge">الجميل</span>
+            <span class="city-badge">زوارة</span>
+        </div>
+        <a href="https://m.me/100063523555230" target="_blank" class="btn-messenger">
+            💬 راسلنا مباشرة على مسنجر الفيسبوك
+        </a>
     </div>
+
+    <div class="menu-section">
+        <h2 class="section-title">قائمة الطعام المميزة</h2>
+        
+        <div class="grid-container">
+            
+            <!-- طابونة -->
+            <div class="food-card">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=400" alt="طابونة">
+                </div>
+                <div class="card-body">
+                    <div class="food-title">طابونة</div>
+                    <div class="price-container">
+                        <span class="price-tag">دجاج: 12 د.ل</span>
+                        <span class="price-tag meat">لحم: 14 د.ل</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- برجر -->
+            <div class="food-card">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=400" alt="برجر">
+                </div>
+                <div class="card-body">
+                    <div class="food-title">برجر</div>
+                    <div class="price-container">
+                        <span class="price-tag">دجاج: 9 د.ل</span>
+                        <span class="price-tag meat">لحم: 10 د.ل</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- مقلوب -->
+            <div class="food-card">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=400" alt="مقلوب">
+                </div>
+                <div class="card-body">
+                    <div class="food-title">مقلوب</div>
+                    <div class="price-container">
+                        <span class="price-tag">دجاج: 18 د.ل</span>
+                        <span class="price-tag meat">لحم: 20 د.ل</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- باقيت -->
+            <div class="food-card">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1626700051175-6518c4793f06?q=80&w=400" alt="باقيت">
+                </div>
+                <div class="card-body">
+                    <div class="food-title">باقيت</div>
+                    <div class="price-container">
+                        <span class="price-tag">دجاج: 22 د.ل</span>
+                        <span class="price-tag meat">لحم: 25 د.ل</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- تشيز -->
+            <div class="food-card">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=400" alt="تشيز برجر">
+                </div>
+                <div class="card-body">
+                    <div class="food-title">تشيز</div>
+                    <div class="price-container">
+                        <span class="price-tag">دجاج: 25 د.ل</span>
+                        <span class="price-tag meat">لحم: 27 د.ل</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- مشتعلة -->
+            <div class="food-card">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?q=80&w=400" alt="مشتعلة">
+                </div>
+                <div class="card-body">
+                    <div class="food-title">مشتعلة</div>
+                    <div class="price-container">
+                        <span class="price-tag">دجاج: 25 د.ل</span>
+                        <span class="price-tag meat">لحم: 27 د.ل</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- كورنو -->
+            <div class="food-card">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1628840042765-356cda07504e?q=80&w=400" alt="كورنو">
+                </div>
+                <div class="card-body">
+                    <div class="food-title">كورنو</div>
+                    <div class="price-container">
+                        <span class="price-tag">دجاج: 22 د.ل</span>
+                        <span class="price-tag meat">لحم: 25 د.ل</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ليباني -->
+            <div class="food-card">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1561651823-34fed022540e?q=80&w=400" alt="ليباني">
+                </div>
+                <div class="card-body">
+                    <div class="food-title">ليباني</div>
+                    <div class="price-container">
+                        <span class="price-tag">دجاج: 22 د.ل</span>
+                        <span class="price-tag meat">لحم: 25 د.ل</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- بيتزا جبنة -->
+            <div class="food-card">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=400" alt="بيتزا جبنة">
+                </div>
+                <div class="card-body">
+                    <div class="food-title">بيتزا جبنة</div>
+                    <div class="price-container">
+                        <span class="price-tag">14 د.ل</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- بيتزا خضرة -->
+            <div class="food-card">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?q=80&w=400" alt="بيتزا خضرة">
+                </div>
+                <div class="card-body">
+                    <div class="food-title">بيتزا خضرة</div>
+                    <div class="price-container">
+                        <span class="price-tag">15 د.ل</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- بيتزا فقاع -->
+            <div class="food-card">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?q=80&w=400" alt="بيتزا فقاع">
+                </div>
+                <div class="card-body">
+                    <div class="food-title">بيتزا فقاع</div>
+                    <div class="price-container">
+                        <span class="price-tag">17 د.ل</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- تن -->
+            <div class="food-card">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?q=80&w=400" alt="تن">
+                </div>
+                <div class="card-body">
+                    <div class="food-title">تن</div>
+                    <div class="price-container">
+                        <span class="price-tag">18 د.ل</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- بيتزا دجاج -->
+            <div class="food-card">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=400" alt="بيتزا دجاج">
+                </div>
+                <div class="card-body">
+                    <div class="food-title">بيتزا دجاج</div>
+                    <div class="price-container">
+                        <span class="price-tag">22 د.ل</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- بيتزا مشكلة تن فقاع -->
+            <div class="food-card">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1590947132387-155cc02f3212?q=80&w=400" alt="بيتزا مشكلة تن فقاع">
+                </div>
+                <div class="card-body">
+                    <div class="food-title">بيتزا مشكلة تن فقاع</div>
+                    <div class="price-container">
+                        <span class="price-tag">22 د.ل</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- بيتزا مشكلة تامة -->
+            <div class="food-card">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=400" alt="بيتزا مشكلة تامة">
+                </div>
+                <div class="card-body">
+                    <div class="food-title">بيتزا مشكلة تامة</div>
+                    <div class="price-container">
+                        <span class="price-tag">25 د.ل</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- بيتزا دبل -->
+            <div class="food-card">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1594009287405-bc549f056098?q=80&w=400" alt="بيتزا دبل">
+                </div>
+                <div class="card-body">
+                    <div class="food-title">بيتزا دبل</div>
+                    <div class="price-container">
+                        <span class="price-tag">30 د.ل</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- وجبة رز -->
+            <div class="food-card">
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?q=80&w=400" alt="وجبة رز">
+                </div>
+                <div class="card-body">
+                    <div class="food-title">وجبة رز</div>
+                    <div class="price-container">
+                        <span class="price-tag">20 د.ل</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        جميع الحقوق محفوظة © 2026 مطعم قيس زلطن
+    </footer>
 
 </body>
 </html>
