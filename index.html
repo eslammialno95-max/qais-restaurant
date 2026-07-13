@@ -5,41 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مطعم قيس زلطن - القائمة الرسمية</title>
     <style>
-        body { background-color: #000; color: #fff; font-family: sans-serif; text-align: center; padding: 10px; }
-        .header-box { background: linear-gradient(135deg, #4a0000, #000); padding: 20px; border-radius: 15px; border-bottom: 2px solid #ffcc00; margin-bottom: 20px; }
-        .main-title { font-size: 28px; color: #ffcc00; margin-bottom: 5px; }
-        .contact-btn { background: #ff0000; color: #fff; padding: 15px; border-radius: 50px; font-weight: bold; margin: 20px 0; display: block; text-decoration: none; }
-        .delivery-box { background: #1a1a1a; padding: 20px; border-radius: 15px; border: 1px solid #333; margin-bottom: 20px; }
-        .grid-container { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .food-card { background: #222; padding: 15px; border-radius: 10px; border: 1px solid #444; font-weight: bold; }
-        h2 { text-align: right; border-right: 4px solid #ffcc00; padding-right: 10px; margin-bottom: 15px; }
+        body { background-color: #000; color: #fff; font-family: 'Segoe UI', sans-serif; text-align: center; margin: 0; padding: 0; }
+        .header { background: linear-gradient(180deg, #8B0000, #000); padding: 30px; border-bottom: 3px solid #FFD700; }
+        h1 { color: #FFD700; margin: 0; font-size: 2.5em; }
+        .contact-box { background: #222; padding: 15px; margin: 20px auto; width: 80%; border-radius: 10px; border: 1px solid #FFD700; }
+        .contact-btn { background: #FF4500; color: white; padding: 15px 30px; text-decoration: none; font-weight: bold; border-radius: 50px; display: inline-block; margin-top: 10px; }
+        .delivery-box { background: #FFD700; color: #000; padding: 15px; margin: 20px; border-radius: 10px; font-weight: bold; }
+        .menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px; padding: 15px; }
+        .item { background: #1a1a1a; padding: 10px; border-radius: 10px; border: 1px solid #333; }
+        .item img { width: 100%; height: 100px; object-fit: cover; border-radius: 8px; }
+        .price { color: #FFD700; font-weight: bold; display: block; margin-top: 5px; }
     </style>
 </head>
 <body>
 
-    <div class="header-box">
-        <h1 class="main-title">مطعم قيس زلطن</h1>
-        <p>طعم الأصالة ... سر التميز</p>
-        <p>زلطن | ليبيا</p>
-        <a href="tel:0924936169" class="contact-btn">📞 اطلب عبر واتساب أو إتصال: 0924936169</a>
+    <div class="header">
+        <h1>مطعم قيس زلطن</h1>
+        <p>سر التميز والطعم الأصيل</p>
     </div>
 
     <div class="delivery-box">
-        <h3>🚀 خدمة التوصيل السريع متوفرة الآن!</h3>
-        <p>يسرنا تلبية طلباتكم وتوصيل وجباتكم المفضلة ساخنة وطازجة مباشرة إلى أبوابكم في المناطق التالية:</p>
-        <p>داخل زلطن | رقدالين | الجميل | زوارة</p>
+        🚀 تتوفر لدينا خدمة توصيل سريعة: زلطن، رقدالين، زوارة، وراس اجدير
     </div>
 
-    <h2>قائمة الطعام المميزة</h2>
-    <div class="grid-container">
-        <div class="food-card">طابونة</div>
-        <div class="food-card">برجر</div>
-        <div class="food-card">مقلوب</div>
-        <div class="food-card">باقيت</div>
-        <div class="food-card">بيتزا جبنة</div>
-        <div class="food-card">بيتزا خضرة</div>
-        <div class="food-card">بيتزا تن</div>
-        <div class="food-card">بيتزا دجاج</div>
+    <div class="contact-box">
+        <p>للطلب والاستفسار:</p>
+        <a href="tel:0924936169" class="contact-btn">📞 0924936169</a>
+    </div>
+
+    <div class="menu-grid">
+        <div class="item"><img src="https://images.unsplash.com/photo-1571407970331-30c6a51d4546" alt="طابونة"><p>طابونة<br><span class="price">12 / 14</span></p></div>
+        <div class="item"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd" alt="برجر"><p>برجر<br><span class="price">9 / 10</span></p></div>
+        <div class="item"><img src="https://images.unsplash.com/photo-1513104890138-7c749659a591" alt="مقلوب"><p>مقلوب<br><span class="price">18 / 20</span></p></div>
+        <div class="item"><img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7ab" alt="بيتزا"><p>بيتزا جبنة<br><span class="price">14</span></p></div>
+        <div class="item"><img src="https://images.unsplash.com/photo-1593560708920-61dd98c46a4e" alt="بيتزا"><p>بيتزا دجاج<br><span class="price">22</span></p></div>
+        <div class="item"><img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38" alt="بيتزا"><p>بيتزا مشكلة تامة<br><span class="price">25</span></p></div>
+        <div class="item"><img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd" alt="رز"><p>وجبة رز<br><span class="price">20</span></p></div>
     </div>
 
 </body>
