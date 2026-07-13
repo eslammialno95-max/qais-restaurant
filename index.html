@@ -5,62 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مطعم قيس زلطن - القائمة الرسمية</title>
     <style>
-        :root {
-            --primary: #dc2626;
-            --secondary: #eab308;
-            --dark: #121212;
-            --card-bg: #1a1a1a;
-            --text-light: #fffdfa;
-            --text-gray: #a3a3a3;
-        }
-
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
-        body { background-color: var(--dark); color: var(--text-light); }
-
+        :root { --primary: #dc2626; --secondary: #eab308; --dark: #121212; --card-bg: #1a1a1a; --text-light: #fffdfa; }
+        body { background-color: var(--dark); color: var(--text-light); font-family: sans-serif; }
         header { text-align: center; padding: 40px 20px; border-bottom: 2px solid var(--secondary); }
-        .logo-placeholder { font-size: 32px; font-weight: bold; color: var(--secondary); }
-        
         .delivery-section { max-width: 600px; margin: 20px auto; padding: 20px; background: #1a1a1a; border-radius: 15px; text-align: center; }
-        .btn-messenger { display: inline-block; margin-top: 15px; background-color: #0084ff; color: white; padding: 12px 25px; border-radius: 25px; text-decoration: none; font-weight: bold; }
-        
+        .btn-messenger { display: inline-block; background-color: #0084ff; color: white; padding: 12px 25px; border-radius: 25px; text-decoration: none; font-weight: bold; }
         .menu-section { max-width: 600px; margin: 0 auto; padding: 20px; }
         .grid-container { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
         .food-card { background: #222; padding: 10px; border-radius: 10px; text-align: center; }
-        
-        footer { text-align: center; padding: 20px; color: var(--text-gray); }
-        .counter { margin-top: 10px; font-size: 12px; color: var(--secondary); }
+        footer { text-align: center; padding: 20px; color: #a3a3a3; }
     </style>
 </head>
 <body>
-
     <header>
-        <div class="logo-placeholder">مطعم قيس زلطن</div>
+        <h1>مطعم قيس زلطن</h1>
         <p>زلطن | ليبيا</p>
     </header>
 
     <div class="delivery-section">
         <h3>🚀 خدمة التوصيل متوفرة</h3>
         <p>زلطن، رقدالين، الجميل، زوارة</p>
-        <!-- الرابط المباشر المحدث -->
-        <a href="https://www.facebook.com/profile.php?id=100063523555230" target="_blank" class="btn-messenger">
-            💬 تواصل معنا عبر فيسبوك
-        </a>
+        <a href="https://www.facebook.com/profile.php?id=100063523555230" target="_blank" class="btn-messenger">💬 تواصل معنا عبر فيسبوك</a>
     </div>
 
     <div class="menu-section">
         <div class="grid-container">
-            <!-- الأصناف هنا (كما هي) -->
+            <!-- أضفت لك عينة، يمكنك إضافة باقي الأصناف بنفس الطريقة -->
+            <div class="food-card"><div>طابونة</div></div>
+            <div class="food-card"><div>برجر</div></div>
+            <div class="food-card"><div>مقلوب</div></div>
+            <div class="food-card"><div>بيتزا</div></div>
         </div>
     </div>
 
     <footer>
-        <p>جميع الحقوق محفوظة © 2026 مطعم قيس زلطن</p>
-        <!-- عداد الزوار -->
-        <div class="counter">
-            عدد زوار الموقع: 
-            <img src="https://counter.optilink.us/get/@qais-restaurant" alt="visitor counter">
+        <p>جميع الحقوق محفوظة © 2026</p>
+        <div style="margin-top:10px;">
+            زوار الموقع: <img src="https://counter.optilink.us/get/@qais-restaurant" alt="counter">
         </div>
     </footer>
-
 </body>
 </html>
