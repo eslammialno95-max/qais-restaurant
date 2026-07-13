@@ -6,18 +6,19 @@
     <title>مطعم قيس زلطن - القائمة الرسمية</title>
     <style>
         body { background-color: #000; color: #fff; font-family: sans-serif; text-align: center; padding: 10px; }
-        .header-box { background: linear-gradient(135deg, #4a0000, #000); padding: 20px; border-radius: 15px; border-bottom: 2px solid #ffcc00; }
+        .header-box { background: linear-gradient(135deg, #4a0000, #000); padding: 20px; border-radius: 15px; border-bottom: 2px solid #ffcc00; margin-bottom: 20px; }
+        .main-title { font-size: 28px; color: #ffcc00; margin-bottom: 5px; }
         .contact-btn { background: #ff0000; color: #fff; padding: 15px; border-radius: 50px; font-weight: bold; margin: 20px 0; display: block; text-decoration: none; }
-        .delivery-box { background: #1a1a1a; padding: 20px; border-radius: 15px; border: 1px solid #333; margin: 20px 0; }
+        .delivery-box { background: #1a1a1a; padding: 20px; border-radius: 15px; border: 1px solid #333; margin-bottom: 20px; }
         .grid-container { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .food-card { background: #222; padding: 10px; border-radius: 10px; }
-        img { width: 100%; border-radius: 10px; }
+        .food-card { background: #222; padding: 15px; border-radius: 10px; border: 1px solid #444; font-weight: bold; }
+        h2 { text-align: right; border-right: 4px solid #ffcc00; padding-right: 10px; margin-bottom: 15px; }
     </style>
 </head>
 <body>
 
     <div class="header-box">
-        <h1>مطعم قيس زلطن</h1>
+        <h1 class="main-title">مطعم قيس زلطن</h1>
         <p>طعم الأصالة ... سر التميز</p>
         <p>زلطن | ليبيا</p>
         <a href="tel:0924936169" class="contact-btn">📞 اطلب عبر واتساب أو إتصال: 0924936169</a>
@@ -29,10 +30,16 @@
         <p>داخل زلطن | رقدالين | الجميل | زوارة</p>
     </div>
 
-    <h2 style="text-align: right;">قائمة الطعام المميزة</h2>
+    <h2>قائمة الطعام المميزة</h2>
     <div class="grid-container">
+        <div class="food-card">طابونة</div>
         <div class="food-card">برجر</div>
-        <div class="food-card">بيتزا</div>
+        <div class="food-card">مقلوب</div>
+        <div class="food-card">باقيت</div>
+        <div class="food-card">بيتزا جبنة</div>
+        <div class="food-card">بيتزا خضرة</div>
+        <div class="food-card">بيتزا تن</div>
+        <div class="food-card">بيتزا دجاج</div>
     </div>
 
 </body>
